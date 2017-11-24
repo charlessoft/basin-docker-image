@@ -36,3 +36,5 @@ build_py27_ml:
 build_py27_spider:
 	cd py27-spider && \
 		make buildimage spider_version=$(spider_version)
+
+build_all: build_py27_ml build_py27_ws build_py27_spider
