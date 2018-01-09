@@ -3,17 +3,6 @@ image_name=basin/py27-spider
 version=latest
 #docker build -t -python:2.7 .
 
-containerlist=$(docker ps -a -q)
-for container in ${containerlist[@]}
-do
-    docker rm -f $container
-done
-
-imagelist=$(docker images -q)
-for image in ${imagelist[@]}
-do
-    docker rmi -f $image
-done
 
 
 #make build_all
