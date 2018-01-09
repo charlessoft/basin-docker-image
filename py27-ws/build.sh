@@ -1,5 +1,5 @@
 #!/bin/bash
-image_name=basin:py27-ws
+image_name=basin/py27-ws
 version=latest
 #docker build -t -python:2.7 .
 
