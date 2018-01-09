@@ -1,0 +1,1 @@
+docker build -t basin:py27-ws .
