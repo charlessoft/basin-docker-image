@@ -26,6 +26,7 @@ ENV PACKAGES="\
   python2 \
   python2-dev \
   py-setuptools \
+  curl \
 "
 
 RUN echo \
