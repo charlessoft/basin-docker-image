@@ -28,14 +28,13 @@ pipeline {
                     echo '编译镜像'
                     echo '======================================='
                     echo env.JOB_NAME
-                    //echo env.${GIT_TAG}
                     echo '======================================='
                     script{
                     if (env.JOB_NAME == 'alpine-python' ){
                         
                         sh """
-                        cd ${JOB_NAME}/2.7;echo ${GIT_TAG};echo 333333333333333
-                        echo "#####"
+                        cd ${JOB_NAME}/2.7;bash build.sh ${GIT_TAG}
+                        
                         """
                         
                     }
