@@ -38,7 +38,7 @@ pipeline {
                     }
                     else{
                         sh """
-                        cd ${JOB_NAME};echo "sss"
+                        cd ${JOB_NAME}; bash build.sh ${GIT_TAG}
                         """
                     }
                     }
