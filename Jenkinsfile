@@ -6,11 +6,10 @@ pipeline {
     }
     environment {
       SNAPSHOTS = '/data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots'
-      GIT_URL = 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git'
     
    }
 
-    parameters { string(defaultValue: 'latest', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
+    parameters { string(defaultValue: 'latest', name: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', description: '默认master\n1.指定branch/tag' ) }
     stages {
 
         stage('checkout') {
