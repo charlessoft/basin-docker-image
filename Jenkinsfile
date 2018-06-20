@@ -18,7 +18,7 @@ pipeline {
                 echo "========="
                     echo "检出源码"
                     //credentialsId 直接复制
-                    git(branch: 'master', url: '${GIT_URL}', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
+                    git(branch: 'master', url: 'env.GIT_URL', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
                     sh """
                     git checkout -b ${GIT_TAG}
                 """
