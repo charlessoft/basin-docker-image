@@ -33,7 +33,7 @@ pipeline {
                     if (env.JOB_NAME == 'alpine-python' ){
                         
                         sh """
-                        cd ${JOB_NAME}/2.7; echo "alpine-pyhton"
+                        cd ${JOB_NAME}/2.7; bash build.sh ${GIT_TAG}
                         """
                     }
                     else{
