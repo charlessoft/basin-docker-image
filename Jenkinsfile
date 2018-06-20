@@ -34,16 +34,15 @@ pipeline {
                         
                         sh """
                         cd ${JOB_NAME}/2.7;bash build.sh ${GIT_TAG}
-                        
                         """
-                        
                     }
                     else{
-                    echo "000000000000000"
-                    echo "000000000000000"
+                        sh """
+                        cd ${JOB_NAME};bash build.sh ${GIT_TAG}
+                        """
                     }
                     }
-                    //sh 'docker build -t ci_hellowrld:latest .'
+                    
             }
         }
 
