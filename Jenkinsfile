@@ -34,7 +34,7 @@ pipeline {
                     if (env.JOB_NAME == 'alpine-python' ){
                         
                         sh """
-                        cd ${JOB_NAME}/2.7;echo ${GIT_TAG};echo 333333333333333"
+                        cd ${JOB_NAME}/2.7;echo ${GIT_TAG};echo 333333333333333
                         echo "#####"
                         """
                         
