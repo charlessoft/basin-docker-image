@@ -9,7 +9,7 @@ pipeline {
     
    }
 
-    parameters { string(defaultValue: 'latest', name: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', description: '默认master\n1.指定branch/tag' ) }
+    parameters { string(defaultValue: 'latest', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
     stages {
 
         stage('checkout') {
@@ -17,7 +17,7 @@ pipeline {
                 echo "========="
                     echo "检出源码"
                     //credentialsId 直接复制
-                    git(branch: 'master', url: 'env.GIT_URL', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
+                    git(branch: 'master', url: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
                     sh """
                     git checkout -b ${GIT_TAG}
                 """
