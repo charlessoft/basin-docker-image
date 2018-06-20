@@ -39,6 +39,10 @@ pipeline {
                         
                         
                     }
+                    else{
+                    echo "000000000000000"
+                    echo "000000000000000"
+                    }
                     }
                     //sh 'docker build -t ci_hellowrld:latest .'
             }
