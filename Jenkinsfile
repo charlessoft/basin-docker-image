@@ -12,6 +12,11 @@ pipeline {
     parameters { string(defaultValue: 'latest', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
     stages {
 
+        stage('clean_workspac') {
+          steps {
+            deleteDir()
+          }
+        }
         stage('checkout') {
             steps {
                 echo "========="
@@ -84,9 +89,9 @@ pipeline {
     }
     //post 这段直接复制
     post {
-        always { 
-            cleanWs()
-        }
+        //always { 
+        //    cleanWs()
+        //}
         success {
             httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON_UTF8', httpMode: 'POST', ignoreSslErrors: true, requestBody: """{
                 "msgtype": "link",
