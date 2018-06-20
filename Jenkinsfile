@@ -28,6 +28,8 @@ pipeline {
                     echo '编译镜像'
                     echo '======================================='
                     echo env.JOB_NAME
+                    echo ${GIT_TAG}
+                    echo '======================================='
                     script{
                     if (env.JOB_NAME == 'alpine-python' ){
                         echo ${GIT_TAG}
