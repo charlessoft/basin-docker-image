@@ -28,6 +28,13 @@ pipeline {
                     echo '编译镜像'
                     echo '======================================='
                     echo env.JOB_NAME
+                    script{
+                    if (env.JOB_NAME == 'alpine-python' ){
+                        sh """cd env.JOB_NAME/2.7;
+                            bash build.sh ${GIT_TAG}
+                        """
+                    }
+                    }
                     //sh 'docker build -t ci_hellowrld:latest .'
             }
         }
@@ -48,7 +55,7 @@ pipeline {
                     script {
                         if (env.GIT_TAG == 'master') {
                             echo 'master主干,发布到snapshots/'
-                                //sh 'mkdir -p /data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots'
+                                //sh 'mkdir -p /data/basin-baseenv/data/docker-release-server/httpd/html/releases/basin-docker-image/snapshots'
                                 //sh 'docker save ci_hellowrld:latest > /data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots/helloworld.tar'
 
                         } else {
