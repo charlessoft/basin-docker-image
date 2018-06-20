@@ -32,10 +32,11 @@ pipeline {
                     echo '======================================='
                     script{
                     if (env.JOB_NAME == 'alpine-python' ){
-                    echo "#####"
                         
-                        sh "cd ${JOB_NAME}/2.7;echo ${GIT_TAG};echo 333333333333333"
+                        sh """
+                        cd ${JOB_NAME}/2.7;echo ${GIT_TAG};echo 333333333333333"
                         echo "#####"
+                        """
                         
                     }
                     else{
