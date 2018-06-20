@@ -27,7 +27,8 @@ pipeline {
                 echo '======================================='
                     echo '编译镜像'
                     echo '======================================='
-                    sh 'docker build -t ci_hellowrld:latest .'
+                    echo ${JOB_NAME}
+                    //sh 'docker build -t ci_hellowrld:latest .'
             }
         }
 
