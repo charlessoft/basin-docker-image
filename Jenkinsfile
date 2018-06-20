@@ -4,6 +4,11 @@ pipeline {
             label 'ci.basin.ali'
         }
     }
+    environment {
+      SNAPSHOTS = '/data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots'
+      GIT_URL = 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git'
+    
+   }
 
     parameters { string(defaultValue: 'latest', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
     stages {
@@ -13,7 +18,7 @@ pipeline {
                 echo "========="
                     echo "检出源码"
                     //credentialsId 直接复制
-                    git(branch: 'master', url: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
+                    git(branch: 'master', url: '${GIT_URL}', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
                     sh """
                     git checkout -b ${GIT_TAG}
                 """
