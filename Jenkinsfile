@@ -5,7 +5,7 @@ pipeline {
         }
     }
 
-    parameters { string(defaultValue: 'master', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
+    parameters { string(defaultValue: 'latest', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
     stages {
 
         stage('checkout') {
@@ -55,8 +55,8 @@ pipeline {
                     script {
                         if (env.GIT_TAG == 'master') {
                             echo 'master主干,发布到snapshots/'
-                                //sh 'mkdir -p /data/basin-baseenv/data/docker-release-server/httpd/html/releases/basin-docker-image/snapshots'
-                                //sh 'docker save ci_hellowrld:latest > /data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots/helloworld.tar'
+                                sh 'mkdir -p /data/basin-baseenv/data/docker-release-server/httpd/html/releases/basin-docker-image/snapshots'
+                                sh "docker save ci_hellowrld:latest > /data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots/${JOB_NAME}_${GIT_TAG}.tar"
 
                         } else {
 
