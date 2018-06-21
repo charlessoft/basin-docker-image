@@ -12,7 +12,7 @@ pipeline {
     parameters { string(defaultValue: 'latest', name: 'GIT_TAG', description: '默认master\n1.指定branch/tag' ) }
     stages {
 
-        stage('clean_workspac') {
+        stage('clean_workspace') {
           steps {
             deleteDir()
           }
@@ -34,6 +34,7 @@ pipeline {
         stage('build-image') {
             steps {
                 echo '======================================='
+
                     echo '编译镜像'
                     echo '======================================='
                     echo env.JOB_NAME
@@ -43,6 +44,11 @@ pipeline {
                         
                         sh """
                         cd ${JOB_NAME}/2.7; bash build.sh ${GIT_TAG}
+                        """
+                    }
+                    else if(env.JOB_NAME == 'dockercloud-haproxy'){
+                        sh """
+                        cd ${JOB_NAME}/1.6.7; bash build.sh ${GIT_TAG}
                         """
                     }
                     else{
