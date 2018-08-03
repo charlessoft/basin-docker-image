@@ -27,6 +27,7 @@ ENV PACKAGES="\
   python2-dev \
   py-setuptools \
   curl \
+  tzdata \
 "
 
 RUN echo \
@@ -51,6 +52,10 @@ RUN echo \
   && pip install --upgrade pip \
   && if [[ ! -e /usr/bin/pip ]]; then ln -sf /usr/bin/pip2.7 /usr/bin/pip; fi \
   && echo
+
+RUN  ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
+  && echo "Asia/Shanghai" > /etc/timezone
+
 
 # since we will be "always" mounting the volume, we can set this up
 ENTRYPOINT ["/usr/bin/dumb-init"]
