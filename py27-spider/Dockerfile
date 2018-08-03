@@ -1,4 +1,4 @@
-FROM basin/alpine-python:2.7
+FROM basin/alpine-python:2.7.1
 
 RUN echo '[global]' >> /etc/pip.conf
 RUN echo 'index-url = https://mirrors.aliyun.com/pypi/simple' >> /etc/pip.conf
