@@ -47,6 +47,11 @@ pipeline {
                         cd ${JOB_NAME}/2.7; bash build.sh ${GIT_TAG}
                         """
                     }
+                    if(env.JOB_NAME == 'alpine-python-3' ) {
+                        sh """
+                        cd alpine-python/3;bash build.sh ${GIT_TAG}
+                        """
+                    }
                     else if(env.JOB_NAME == 'dockercloud-haproxy'){
                         sh """
                         cd ${JOB_NAME}/1.6.7; bash build.sh ${GIT_TAG}
