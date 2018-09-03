@@ -1,9 +1,10 @@
 pipeline {
-    agent {
-        node {
-            label 'ci.basin.ali'
-        }
-    }
+    agent any
+    //agent {
+    //    node {
+    //        label 'ci.basin.ali'
+    //    }
+    //}
     environment {
       SNAPSHOTS = '/data/basin-baseenv/data/docker-release-server/httpd/html/releases/helloworld/snapshots'
     
@@ -22,7 +23,7 @@ pipeline {
                 echo "========="
                     echo "检出源码"
                     //credentialsId 直接复制
-                    git(branch: 'master', url: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
+                    //git(branch: 'master', url: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
                     sh """
                     git checkout -b ${GIT_TAG}
                     """
@@ -95,9 +96,10 @@ pipeline {
     }
     //post 这段直接复制
     post {
-        //always { 
-        //    cleanWs()
-        //}
+       always {
+              echo 'One way or another, I have finished'
+              deleteDir() /* clean up our workspace */
+        }
         success {
             httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON_UTF8', httpMode: 'POST', ignoreSslErrors: true, requestBody: """{
                 "msgtype": "link",
