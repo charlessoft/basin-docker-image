@@ -25,7 +25,7 @@ pipeline {
                     //credentialsId 直接复制
                     //git(branch: 'master', url: 'ssh://git@47.100.219.148:10023/basin/basin-docker-image.git', credentialsId: '97aafea0-575e-45a9-ab31-c917d8ca99d4')
                     sh """
-                    git checkout  ${GIT_TAG}
+                    //git checkout  ${GIT_TAG}
                     """
                     echo "========="
             }
