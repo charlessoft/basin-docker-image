@@ -48,6 +48,9 @@ pipeline {
                     echo env.JOB_NAME
                     echo '======================================='
                     script{
+                    echo '!======================================='
+                    echo env.JOB_NAME
+                    echo '!======================================='
                     if (env.JOB_NAME == 'alpine-python' ){
                         
                         sh """
