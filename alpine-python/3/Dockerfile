@@ -52,10 +52,9 @@ RUN echo \
   # Install and upgrade Pip
   && python3 -m ensurepip \
   && rm -r /usr/lib/python*/ensurepip \
-  && pip3 install --upgrade pip setuptools \
+  && pip3 install --upgrade pip setuptools\
   && if [[ ! -e /usr/bin/pip ]]; then ln -sf /usr/bin/pip3 /usr/bin/pip; fi \
-  && rm -r /root/.cache \
-
+  && rm -fr /root/.cache \
   && echo
 COPY ./requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt 
