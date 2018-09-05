@@ -42,6 +42,12 @@ pipeline {
         stage('build-image') {
             steps {
                 script {
+                    if (env.JOB_NAME == 'alpine-python') {
+                        echo 'I only execute on the master branch'
+                    } else {
+                        echo 'I execute elsewhere'
+                    }
+
                 echo '======================================='
 
                     echo '编译镜像'
