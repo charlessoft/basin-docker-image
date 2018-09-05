@@ -53,7 +53,7 @@ pipeline {
                         cd ${JOB_NAME}/2.7; bash build.sh ${GIT_TAG}
                         """
                     }
-                    el if(env.JOB_NAME == 'alpine-python-3' ) {
+                    else if(env.JOB_NAME == 'alpine-python-3' ) {
                         sh """
                         cd alpine-python/3;bash build.sh ${GIT_TAG}
                         """
