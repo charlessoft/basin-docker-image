@@ -41,30 +41,19 @@ pipeline {
 
         stage('build-image') {
             steps {
-                script {
-                    if (env.JOB_NAME == 'alpine-python') {
-                        echo 'I only execute on the master branch'
-                    } else {
-                        echo 'I execute elsewhere'
-                    }
-
-                echo '======================================='
-
+                    echo '======================================='
                     echo '编译镜像'
                     echo '======================================='
                     echo env.JOB_NAME
                     echo '======================================='
                     script{
-                    echo '!======================================='
-                    echo env.JOB_NAME
-                    echo '!======================================='
                     if (env.JOB_NAME == 'alpine-python' ){
                         
                         sh """
                         cd ${JOB_NAME}/2.7; bash build.sh ${GIT_TAG}
                         """
                     }
-                    if(env.JOB_NAME == 'alpine-python-3' ) {
+                    el if(env.JOB_NAME == 'alpine-python-3' ) {
                         sh """
                         cd alpine-python/3;bash build.sh ${GIT_TAG}
                         """
@@ -79,7 +68,6 @@ pipeline {
                         echo "else"
                         cd ${JOB_NAME}; bash build.sh ${GIT_TAG}
                         """
-                    }
                     }
                 }
                     
