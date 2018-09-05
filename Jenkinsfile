@@ -109,10 +109,10 @@ pipeline {
     }
     //post 这段直接复制
     post {
-       //always {
-       //       echo 'One way or another, I have finished'
-       //       deleteDir() /* clean up our workspace */
-       // }
+       always {
+              echo 'One way or another, I have finished'
+              deleteDir() /* clean up our workspace */
+        }
         success {
             httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON_UTF8', httpMode: 'POST', ignoreSslErrors: true, requestBody: """{
                 "msgtype": "link",
