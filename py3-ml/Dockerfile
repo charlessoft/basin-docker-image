@@ -13,7 +13,8 @@ RUN apk add --no-cache libstdc++ lapack-dev && \
         pip install -r /tmp/requirements.txt && \
         find /usr/lib/python3.*/ -name 'tests' -exec rm -rf '{}' + && \
         rm -f /usr/include/xlocale.h && \
-        rm -rf /root/.cache
+        rm -rf /root/.cache && \
+        apk add --update libxml2 libxslt libxml2-dev libxslt-dev
 
 RUN rm -f /tmp/requirements.txt
 
