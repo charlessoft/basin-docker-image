@@ -66,6 +66,7 @@ pipeline {
                     }
                     else{
                         sh """
+                        echo "else"
                         cd ${JOB_NAME}; bash build.sh ${GIT_TAG}
                         """
                     }
