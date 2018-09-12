@@ -43,3 +43,4 @@ user-agent==0.1.9
 prettytable==0.7.2
 beautifulsoup4==4.3.2
 toml
+pandas==0.23.4
