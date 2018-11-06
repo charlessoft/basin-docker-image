@@ -74,7 +74,7 @@ pipeline {
                     else{
                         sh """
                         #cd ${JOB_NAME}; bash build.sh ${GIT_TAG}
-                        cd ${JOB_NAME}; docker build -t ${JOB_NAME}:${GIT_TAG} .
+                        cd ${JOB_NAME}; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
                         docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/${JOB_NAME}:${GIT_TAG}
                         docker push ${DOCKER_PRIVATE_SERVER}/${JOB_NAME}:${GIT_TAG}
                         """
