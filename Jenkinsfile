@@ -51,6 +51,7 @@ pipeline {
                         
                         sh """
                         echo "======"
+                        echo ${DOCKER_PRIVATE_SERVER}
 
                         """
                     }
