@@ -52,6 +52,12 @@ pipeline {
                         sh """
                         echo "======"
                         echo ${DOCKER_PRIVATE_SERVER}
+                        export image_name=alpine-python
+                        echo ${image_name}
+                        #cd ${JOB_NAME}/2.7; bash build.sh ${GIT_TAG}
+                        #cd ${JOB_NAME}/2.7; docker build -t ${image_name}:${version} .
+                        #docker tag ${image_name}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/${image_name}:${GIT_TAG}
+                        #docker push ${DOCKER_PRIVATE_SERVER}/${image_name}:${GIT_TAG}
 
                         """
                     }
