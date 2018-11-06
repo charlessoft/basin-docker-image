@@ -52,7 +52,7 @@ pipeline {
                         sh """
                         echo "======"
                         echo ${DOCKER_PRIVATE_SERVER}
-                        export XXX=aliine-python
+                        export XXX=aliine
                         echo $XXX
                         export image_name=alpine-python
                         echo ${image_name}
