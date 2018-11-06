@@ -53,6 +53,9 @@ pipeline {
                         echo "======"
                         echo ${DOCKER_PRIVATE_SERVER}
                         echo ${JOB_NAME}
+                        cd ${JOB_NAME}/2.7; docker build -t ${JOB_NAME}:${version} .
+                        docker tag ${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/${JOB_NAME}:${GIT_TAG}
+                        docker push ${DOCKER_PRIVATE_SERVER}/${JOB_NAME}:${GIT_TAG}
 
                         """
                     }
