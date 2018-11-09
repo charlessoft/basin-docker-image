@@ -62,8 +62,8 @@ pipeline {
                     else if(env.JOB_NAME == 'alpine-python-3' ) {
                         sh """
                         cd alpine-python/3; docker build -t basin/alpine-python3:${GIT_TAG} .
-                        docker tag basin/alpine-python3:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/alpine-python3:${GIT_TAG}
-                        docker push ${DOCKER_PRIVATE_SERVER}/alpine-python3:${GIT_TAG}
+                        docker tag basin/alpine-python3:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/alpine-python3:${GIT_TAG}
+                        docker push ${DOCKER_PRIVATE_SERVER}/basin/alpine-python3:${GIT_TAG}
                         """
                     }
                     else if(env.JOB_NAME == 'dockercloud-haproxy'){
@@ -75,8 +75,8 @@ pipeline {
                         sh """
                         #cd ${JOB_NAME}; bash build.sh ${GIT_TAG}
                         cd ${JOB_NAME}; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
-                        docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/${JOB_NAME}:${GIT_TAG}
-                        docker push ${DOCKER_PRIVATE_SERVER}/${JOB_NAME}:${GIT_TAG}
+                        docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
+                        docker push ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                         """
                     }
                 }
