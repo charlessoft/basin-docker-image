@@ -1,6 +1,5 @@
 #FROM basin/alpine-python:2.7
-#FROM basin/alpine-python3:py3_1.0
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
+FROM basin/alpine-python3:py3_1.0
 MAINTAINER Jiangwen Su <idleuncle@gmail.com>
 
 COPY ./requirements.txt /tmp/requirements.txt
