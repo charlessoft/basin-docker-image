@@ -1,5 +1,5 @@
 #!/bin/bash
-image_name=basin/py3-ml
+image_name=basin/py3-flask
 version=latest
 #docker build -t -python:2.7 .
 
