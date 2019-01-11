@@ -1,4 +1,4 @@
-FROM basin/alpine-jdk8:0.1
+FROM basin/alpine-jdk8:alpine-jdk8_0.1
 
 ENV PACKAGES="\
   dumb-init \
