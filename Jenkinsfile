@@ -59,6 +59,16 @@ pipeline {
 
                         """
                     }
+                    else if(env.JOB_NAME == 'alpine38') {
+                        sh """
+                        echo "======"
+                        echo ${DOCKER_PRIVATE_SERVER}
+                        echo ${JOB_NAME}
+                        cd ${JOB_NAME}/38; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
+                        docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
+                        docker push ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
+                            """
+                    }
                     else if(env.JOB_NAME == 'alpine-python-3' ) {
                         sh """
                         cd alpine-python/3; docker build -t basin/alpine-python3:${GIT_TAG} .
