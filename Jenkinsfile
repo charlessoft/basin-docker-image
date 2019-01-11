@@ -64,7 +64,7 @@ pipeline {
                         echo "======"
                         echo ${DOCKER_PRIVATE_SERVER}
                         echo ${JOB_NAME}
-                        cd ${JOB_NAME}/alpine38; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
+                        cd alpine/${JOB_NAME};docker build -t basin/${JOB_NAME}:${GIT_TAG} .
                         docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                         docker push ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                             """
@@ -74,7 +74,7 @@ pipeline {
                         echo "======"
                         echo ${DOCKER_PRIVATE_SERVER}
                         echo ${JOB_NAME}
-                        cd ${JOB_NAME}/alpine36; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
+                        cd alpine/${JOB_NAME};docker build -t basin/${JOB_NAME}:${GIT_TAG} .
                         docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                         docker push ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                             """
