@@ -64,7 +64,17 @@ pipeline {
                         echo "======"
                         echo ${DOCKER_PRIVATE_SERVER}
                         echo ${JOB_NAME}
-                        cd ${JOB_NAME}/38; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
+                        cd ${JOB_NAME}/alpine38; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
+                        docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
+                        docker push ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
+                            """
+                    }
+                    else if(env.JOB_NAME == 'alpine36') {
+                        sh """
+                        echo "======"
+                        echo ${DOCKER_PRIVATE_SERVER}
+                        echo ${JOB_NAME}
+                        cd ${JOB_NAME}/alpine36; docker build -t basin/${JOB_NAME}:${GIT_TAG} .
                         docker tag basin/${JOB_NAME}:${GIT_TAG} ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                         docker push ${DOCKER_PRIVATE_SERVER}/basin/${JOB_NAME}:${GIT_TAG}
                             """
