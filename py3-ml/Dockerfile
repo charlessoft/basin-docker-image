@@ -1,5 +1,5 @@
 #FROM basin/alpine-python:2.7
-FROM basin/alpine-python3:py3_1.0
+FROM basin/alpine-python3:alpine-python3_0.1
 MAINTAINER Jiangwen Su <idleuncle@gmail.com>
 
 COPY ./requirements.txt /tmp/requirements.txt
