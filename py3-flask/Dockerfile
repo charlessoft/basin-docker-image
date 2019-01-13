@@ -1,6 +1,6 @@
 #FROM basin/alpine-python:2.7
 #FROM basin/py3-ml:py3-ml_2.0
-FROM basin/alpine-python3:py3_1.0
+FROM basin/alpine-python3:alpine-python3_0.1
 MAINTAINER qian chen <charlessoft@qq.com>
 
 COPY ./requirements.txt /tmp/requirements.txt

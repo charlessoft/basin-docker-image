@@ -1,5 +1,7 @@
 #!/bin/bash
-image_name=basin/py3-flask
+image_name=basin/${PWD##*/}
+#image_name=basin/py3-flask
+echo $image_name
 version=latest
 #docker build -t -python:2.7 .
 
